@@ -18,4 +18,14 @@ Scenario: Delete an existing admin user profile
 	And I navigate to systems user page
 	Then I should able to delete an existing user successfully
 
+Scenario Outline: Create multiple employees
+Given I login to Orange HRM portal as an administration
+And I navigate to systems user page
+Then I should able to create multiple '<employees>' user successfully
+Examples: 
+| employees |
+| TestName1 |
+| TestName2 |
+| TestName3 |
+
 

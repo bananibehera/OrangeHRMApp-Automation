@@ -28,7 +28,7 @@ namespace OrangeHRMJune2020.StepDefinition
         {
             var systemUsersPage = new SystemUsersPage(driver);
             systemUsersPage.ClickAdd();
-            systemUsersPage.AddAndSaveUser();
+            systemUsersPage.AddAndSaveUser("b");
             systemUsersPage.VerifyUser();
         }
 
@@ -44,6 +44,14 @@ namespace OrangeHRMJune2020.StepDefinition
             ScenarioContext.Current.Pending();
         }
 
+        [Then(@"I should able to create multiple '(.*)' user successfully")]
+        public void ThenIShouldAbleToCreateMultipleUserSuccessfully(string employeeName)
+        {
+            var systemUsersPage = new SystemUsersPage(driver);
+            systemUsersPage.ClickAdd();
+            systemUsersPage.AddAndSaveUser(employeeName);
+            systemUsersPage.VerifyUser();
+        }
 
     }
 }

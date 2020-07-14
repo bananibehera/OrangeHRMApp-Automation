@@ -23,14 +23,14 @@ namespace OrangeHRMJune2020
 
         }
 
-        internal void AddAndSaveUser()
+        internal void AddAndSaveUser(string employeeName)
         {
             //Selecting from User Role dropdown box.
             SelectElement userRole = new SelectElement(driver.FindElement(By.Id("systemUser_userType")));
             userRole.SelectByText("Admin");
 
             var empName = driver.FindElement(By.Id("systemUser_employeeName_empName"));
-            empName.SendKeys("a");
+            empName.SendKeys(employeeName);
             var list = driver.FindElements(By.XPath("//div[@class='ac_results']/ul/li"));
             list[0].Click();
 
